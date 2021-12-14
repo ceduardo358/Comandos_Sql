@@ -158,7 +158,56 @@ $sql = "SELECT pessoas.nome FROM pessoas LEFT JOIN faixas ON faixas.id = pessoas
 
 *****************************Criando funções*****************************
 
+##Exemplo de criação da função
+CREATE FUNCTION CONTAR(nome varchar(100))
+	RETURNS int(10)
+	BEGIN
 
+		DECLARE qt int(10);
+		SET qt = LENGTH(nome);
+		RETURN qt;
+	END$$
 
+##Exemplo de como usar essa função
+SELECT nome, email, CONTAR(nome) as contagem FROM pessoas; ##O retorno dela é a contagem de caracteries da tabela nome
+//Código em PHP
+$sql = "SELECT nome, email, CONTAR(nome) as contagem FROM pessoas";
 
+##Outro exemplo
 
+CREATE FUNCTION somar( x int(10), y int(10))
+	RETURNS int(10)
+	BEGIN
+    	
+        DECLARE r int(10);
+        SET r = x + y;
+        RETURN r;
+    END$$    
+    ##Utilizando a função
+    SELECT SOMAR(5, 4) as soma;
+    //Código em PHP
+    $sql = "SELECT SOMAR(5, 4) as soma";
+
+    *******************Configurando servidor externo pelo cPanel********************
+
+	##ESQUEMA DE PASSOS A SEGUIR TIRADO DA HOSTGATOR
+    1-Exporte se banco de dados já criado no seu servidor local como .sql
+    2-Na sua hospedagem vá onde tem banco de dados MySql, vai ser solicitado que se crie um banco de dados, você ira escolher um nome 
+    para o banco, na hospedagem sempre tera um prefixo que assossiara ao nome do banco criado. ##Ex. ususario025_banco123.
+    3-Será necessário criar um usuario com nome e senha.
+    4-Depois você ira adicionar o usuario ao banco dando as permissões do que ele pode modificar nesse banco.
+    5-Marque quais privilégios o usuário tem nesse banco, os comandos disponiveis são:
+    
+    *ALTER    					 *ALTER ROUTINE
+    *CREATE   					 *CREATE ROUTINE
+    *CREATE TEMPORARY TABLES     *CREATE VIEW
+    *DELETE 					 *DROP
+    *EVENT 						 *EXECUTE
+    *INDEX						 *INSERT
+    *LOCK TABLES  				 *REFERENCES
+    *SELECT						 *SHOW VIEW
+    *TRIGGER					 *UPDATE
+
+    6-Depois volte ao cPanel e click em phpmyadmin, para ele abrir o phpmyadmin do servidor externo.
+    7-Selecione o banco desejado e vá na parte de importar, escolha o arquivo desejado e importe o mesmo.
+    
