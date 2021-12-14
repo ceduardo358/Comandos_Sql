@@ -2,9 +2,11 @@
 							*********Principais comandos de banco de dados********
 
 
-**CREATE DATABASE "Nome do banco"; //Para Criar o banco de dados
+CREATE DATABASE "Nome do banco"; //Para Criar o banco de dados
 
-**CREATE TABLE "Nome da tabela"; //Cria a tabela.
+CREATE TABLE "Nome da tabela"; //Cria a tabela.
+
+CREATE TABLE IF NOT EXISTS "Nome da tabela"; //Cria a tabela mais antes faz uma checagem se já Existe um tabela com esse nome.
 
 ##Estrutura basica da tabela
 
@@ -50,13 +52,16 @@ $sql = "ALTER TABLE `pessoas`  ADD `faixa_salarial` TINYINT(1) NOT NULL  AFTER `
 ##Exemplo abaixo
 ALTER TABLE `pessoas` CHANGE `ID` `ID` INT(10) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`ID`); 
 UPDATE `pessoas` SET `faixa_salarial` = '1' WHERE `pessoas`.`Id` = 1; ##Outro tipo mais comum de edição
+ALTER TABLE pessoas CHANGE COLUMN "Nome antigo" "nome novo" varchar(20);##Com esse comando eu altero o nome de uma coluna
+ALTER TABLE pessoas RENAME TO "Nome novo para tabela"; ##Esse comando renomeia a tabela por completo.
 //Código em PHP
 $sql = "ALTER TABLE `pessoas`  ADD `Id` INT(10) NOT NULL AUTO_INCREMENT  FIRST,  ADD   PRIMARY KEY  (`Id`)";
 $sql = "UPDATE `pessoas` SET `faixa_salarial` = \'1\' WHERE `pessoas`.`Id` = 1";
 
 
-		*******Para deletar uma linha de uma tabela, comando DELETE FROM ******
-
+		*******Para deletar uma linha de uma tabela ******
+comando DELETE FROM
+O comando DROP column ##Remove uma coluna por exemplo
 ##Exemplo abaixo, Nunca esquecer da condição WHERE
 DELETE FROM `pessoas` WHERE `pessoas`.`Id` = 2
 ////Código em PHP
@@ -210,4 +215,4 @@ CREATE FUNCTION somar( x int(10), y int(10))
 
     6-Depois volte ao cPanel e click em phpmyadmin, para ele abrir o phpmyadmin do servidor externo.
     7-Selecione o banco desejado e vá na parte de importar, escolha o arquivo desejado e importe o mesmo.
-    
+
