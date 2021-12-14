@@ -203,15 +203,24 @@ CREATE FUNCTION somar( x int(10), y int(10))
     4-Depois você ira adicionar o usuario ao banco dando as permissões do que ele pode modificar nesse banco.
     5-Marque quais privilégios o usuário tem nesse banco, os comandos disponiveis são:
     
-    *ALTER    					 *ALTER ROUTINE
-    *CREATE   					 *CREATE ROUTINE
-    *CREATE TEMPORARY TABLES     *CREATE VIEW
-    *DELETE 					 *DROP
-    *EVENT 						 *EXECUTE
-    *INDEX						 *INSERT
-    *LOCK TABLES  				 *REFERENCES
-    *SELECT						 *SHOW VIEW
-    *TRIGGER					 *UPDATE
+    *ALTER ##Para realizar a alteração em uma tabela   					
+    *ALTER ROUTINE ##
+    *CREATE   ##Para realizar a criação do banco ou tabela					 
+    *CREATE ROUTINE
+    *CREATE TEMPORARY TABLES    
+    *CREATE VIEW
+    *DELETE ##Para deletar algum dado					
+    *DROP  ##Serve para excluir um banco completo
+    *EVENT 						 
+    *EXECUTE
+    *INDEX						 
+    *INSERT ##Para inserir dados em uma tabela
+    *LOCK TABLES  				 
+    *REFERENCES
+    *SELECT	##Para selecionar algo para ser manipulado.					 
+    *SHOW VIEW
+    *TRIGGER					 
+    *UPDATE ##Quando se quer realizar uma atualização de um dado
 
     6-Depois volte ao cPanel e click em phpmyadmin, para ele abrir o phpmyadmin do servidor externo.
     7-Selecione o banco desejado e vá na parte de importar, escolha o arquivo desejado e importe o mesmo.
